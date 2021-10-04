@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moodle Setting</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./css/Qorrect.css" />
+
+  <script src="./Js/jquery.min.js"></script>
+  <script src="./Js/bootstrap.min.js"></script>
+  <script src="./Js/jquery.validate.js"></script>
+  <script src="./Js/additional-methods.min.js"></script>
+  <script src="./Js/moodle-setting.js"></script>
+</head>
+
+<body>
+  <div class="loading"></div>
+
+  <div class="navbar navbar-default">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Moodle Setting</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true"
+              aria-controls="collapseOne">
+              Moodle Control Panel
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            <form class="form-horizontal" id="apply-moodle-setting">
+              <div class="form-group">
+                <label class="col-lg-2 control-label">Moodle Base Url</label>
+                <div class="col-lg-6">
+                  <input type="text" class="form-control" name="moodleBaseUrlTxt" id="moodleBaseUrlTxt"
+                    placeholder="Moodle Base Url" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-2 control-label">Qorrect Base Url</label>
+                <div class="col-lg-4">
+                    <input type="text" class="form-control" name="qorrectBaseUrlTxt" id="qorrectBaseUrlTxt"
+                    placeholder="Qorrect Base Url" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-2 control-label">Media Base Url</label>
+                <div class="col-lg-4">
+                    <input type="text" class="form-control" name="mediaBaseUrlTxt" id="mediaBaseUrlTxt"
+                    placeholder="Media Base Url" />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                  <button type="submit" class="btn btn-success" id="runBtn">
+                    Apply Settings
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
+</html>
