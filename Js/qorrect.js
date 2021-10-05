@@ -72,14 +72,49 @@ $(function () {
     GetCoursesDDL();
 
 
+ // load modle courses list
+ function GetCategoryDDL(bearerToken) {
+
+
+    var settings = {
+        "url": `${PORT}/modle/CategoryList?wstoken=${bearerToken}`,
+        "method": "GET",
+        "timeout": 0,
+    };
+
+
+    $.ajax(settings).done(function (response) {
+
+        $("#frmCategory").html('')
+        $.each(response, function (data, value) {
+
+            $("#frmCategory").append($("<option></option>").val(value.id).html(value.name));
+        })
+
+        $("#frmCategory").prepend("<option value='' selected='selected'>Please Select</option>")
+
+    }).fail(function (xhr, status, error) {
+        console.log(error)
+    });
+
+};
+
+
+    $('#frmCategory').on('change',function(params) {
+        
+        var token = $('#tokenDiv').html();
+        var id = $(this).val();
+        GetCoursesDDL2(token , id);
+    })
+
 
     // load modle courses list
-    function GetCoursesDDL2(bearerToken) {
+    function GetCoursesDDL2(bearerToken , id) {
 
         $('#divLoading').addClass('loading');
 
         var settings = {
-            "url": `${PORT}/modle/CourseList?wstoken=${bearerToken}`,
+            "url": `${PORT}/modle/CourseList?wstoken=${bearerToken}&id=${id}`,
             "method": "GET",
             "timeout": 0,
         };
@@ -288,7 +323,8 @@ $(function () {
                 }
 
                 $('#tokenDiv').html(token);
-                GetCoursesDDL2(token);
+                // GetCoursesDDL2(token);
+                GetCategoryDDL(token);
             });
 
         }
