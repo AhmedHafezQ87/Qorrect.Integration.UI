@@ -72,7 +72,7 @@ $(function () {
     GetCoursesDDL();
 
 
- // load moodle courses list
+ // load moodle courses Dropdown
  function GetCategoryDDL(bearerToken) {
 
 
