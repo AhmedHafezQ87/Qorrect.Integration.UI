@@ -37,7 +37,7 @@ $(function () {
         <td>${item.fullname}</td>
         <td>${item.shortname}</td>
         <td>${xmlUploader}</td>
-        <td><button type="button" data-item='${JSON.stringify(item)}' class="btn btn-success" onclick="DISPLAYROW(this)">Run</button></td>
+        <td><button type="button" data-item='${JSON.stringify(item.idnumber)}' class="btn btn-success" onclick="DISPLAYROW(this)">Run</button></td>
     </tr>
     `;
     };
@@ -76,6 +76,8 @@ $(function () {
     // load modle courses list
     function GetCoursesDDL2(bearerToken) {
 
+        $('#divLoading').addClass('loading');
+
         var settings = {
             "url": `${PORT}/modle/CourseList?wstoken=${bearerToken}`,
             "method": "GET",
@@ -89,7 +91,7 @@ $(function () {
             for (let item of coursesGrid) {
                 TBLBODYAPI2.innerHTML += `${HTMLGrid2(item)}`;
             };
-
+            $('#divLoading').removeClass('loading');
 
         }).fail(function (xhr, status, error) {
             console.log(error)
@@ -106,7 +108,7 @@ $(function () {
     $('#refreshBtn2').on('click', function () {
         let bearerToken = $('#frmBearerToken2').val();
         GetQorrectModules2(bearerToken)
-    })
+    });
 
     // Load Qorrect Module
     function GetQorrectModules2(bearerToken) {
